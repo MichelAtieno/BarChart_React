@@ -20,7 +20,7 @@ const Tracks = () => {
 			'method': 'POST',
 			'headers': {
 				 'Content-Type':'application/x-www-form-urlencoded',
-				 'Authorization': 'Basic ' + (new Buffer('73ffabe4e72e483e906aed2f0c914f87' + ':' + '3bbb1b0c4dbb44ed88799046ccbf728d').toString('base64')),
+				 'Authorization': 'Basic ' + (new Buffer('CLIENT_ID' + ':' + 'CLIENT_SECRET').toString('base64')),
 			},
 			data: 'grant_type=client_credentials'
 		}).then(tokenresponse => {
