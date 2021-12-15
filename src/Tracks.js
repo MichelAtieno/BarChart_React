@@ -42,9 +42,42 @@ const Tracks = () => {
 		}).catch(error => console.log(error));
 	},[])
 
+	function PopularityByTrack(data) {
+		let plotData = []
+
+		let names = [];
+		let popularity = [];
+
+		data.map(each => {
+			names.push(each.name);
+			popularity.push(each.popularity);
+		})
+
+		plotData['names'] = names;
+		plotData['popularity'] = popularity;
+
+		return plotData;
+	}
+
 
     return (
-        <div></div>
+        <div>
+			<Plot 
+				data={[
+					{
+						type: 'bar',
+						x: PopularityByTrack(tracks)['names'],
+						y: PopularityByTrack(tracks)['popularity'],
+						marker: {color: '#eb3d8e'}
+					}
+				]}
+				layout={{
+					width: 1000,
+					height: 600,
+					title: 'Sauti Sol Top tracks(KE)'
+				}}
+			/>
+		</div>
     )
 }
 
